@@ -3,42 +3,45 @@
 
 	$(document).ready( function() {
 
-		// init scrollspy
-		$('body').scrollspy({ target: '#main-nav' });
-		
-		// init scroll-to effect navigation, adjust the scroll speed in milliseconds			
-		$('#main-nav').localScroll(1000);
-		$('#header').localScroll(1000);
-
-
-		// google maps 
-		if( $('.map-canvas').length > 0) {
-			
-			var geocoder = new google.maps.Geocoder();
-			var address = 'Google New York, 76 Ninth Ave, New York, NY, USA';
-			var contentString = '<div class="map-detail"><strong>Our Office:</strong><p>' + address + '</p></div>';
-			
-			geocoder.geocode({'address': address }, function(results, status) {
-				if(status == google.maps.GeocoderStatus.OK) { 
-					var latitude = results[0].geometry.location.lat();
-					var longitude = results[0].geometry.location.lng();
-
-					jQuery('.map-canvas').gmap().bind('init', function(ev, map) {
-						jQuery('.map-canvas').gmap('addMarker', {'position': latitude+','+longitude, 'bounds': true}).click(function() {
-							jQuery('.map-canvas').gmap('openInfoWindow', {'content': contentString}, this);
-						});
-						jQuery('.map-canvas').gmap('option', 'zoom', 8);
-					});
-				}else { alert('Google Maps had some trouble finding the address. Status: ' + status); }
-			});
-			
-		}
-
 		// form validation 
 		Modernizr.load({
 			test: Modernizr.input.autocomplete,		
 			nope: ['assets/js/jquery.validate.js', 'assets/js/jquery.validate.bootstrap.js'],
 		});
+
+	  	// anagram checkcer
+	    var anagram = function(str1, str2) {
+      	  	return str1.split("").sort().join("") === str2.split("").sort().join("");
+          	}
+
+           $('.checkAna').on('click', function(e) {
+    e.preventDefault();
+    if ($('#string1').val() == '') {
+      $('#string1').addClass('error');
+      if ($('#string2').val() == '') {
+        $('#string2').addClass('error');
+      }
+      $('.results').empty();
+      $('.results').hide();
+    } else {
+      $('#string1').removeClass('error');
+      if ($('#string2').val() == '') {
+        $('#string2').addClass('error');
+        $('.results').empty();
+        $('.results').hide();
+      } else {
+        $('#string2').removeClass('error');
+        var isAnagram = anagram($('#string1').val(), $('#string2').val());
+        $('#string1').val('');
+        $('#string2').val('')
+        $('.results').show();
+        $('.results').empty().append('Is Anagram: ' + isAnagram);
+      }
+    }
+  });
+
+
+});
 
 		// ajax contact form
 		$('.contact-form form').submit( function(e) {

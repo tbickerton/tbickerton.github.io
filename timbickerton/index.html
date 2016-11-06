@@ -1,8 +1,5 @@
 <!DOCTYPE html>
-<!--[if lt IE 7 ]><html class="ie ie6" lang="en" class="no-js"> <![endif]-->
-<!--[if IE 7 ]><html class="ie ie7" lang="en" class="no-js"> <![endif]-->
-<!--[if IE 8 ]><html class="ie ie8" lang="en" class="no-js"> <![endif]-->
-<!--[if (gte IE 9)|!(IE)]><!--><html lang="en" class="no-js"> <!--<![endif]-->
+
 <head>
 	<title>Tim Bickerton - Experiened Project and Program Dude</title>
 	<meta charset="utf-8">
@@ -23,52 +20,50 @@
       <script src="assets/js/respond.min.js"></script>
     <![endif]-->
 
-    <!-- Fav and touch icons -->
-    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="assets/ico/apple-touch-icon-144-precomposed.png">
-    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="assets/ico/apple-touch-icon-114-precomposed.png">
-    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="assets/ico/apple-touch-icon-72-precomposed.png">
-    <link rel="apple-touch-icon-precomposed" href="assets/ico/apple-touch-icon-57-precomposed.png">
-    <link rel="shortcut icon" href="assets/ico/favicon.png">
+    <!-- jquery -->
+    <script type="text/javascript" src="http://code.jquery.com/jquery-3.1.0.min.js"></script>
 
+    <!-- favicon -->
+	<link rel="icon" type="image/png" href="..//timbickerton/assets/ico/favicon.jpg" sizes="32x32">
 </head>
-<body data-spy="scroll" data-target="#main-nav">
-	<!-- WRAPPER -->
+<body>
+	<!-- Wrapper -->
 	<div class="wrapper">
 				
-		<!-- header -->
+		<!-- Header with Embedded Anagram Checker -->
 		<header class="jumbotron header" id="header">
 			<div class="container">
 				<div class="row">
 					<div class="col-md-6 right">
-						<h1 class="hide">TIM BICKERTON</h1>
-						<h2 class="heading">TIM BICKERTON</h2>
-						<div class="credentials">PMP, MBA, MS, CSM</div>
-						<p>Experienced Project and Program Manager, Analyst, Operational Strategist, Team Leader</p><br />
+						<h1 class="heading">TIM BICKERTON</h1>
+						<div class="credentials">PMP, MBA, MS, CSM, CSPO</div>
+						<p>Seasoned professional with diverse experience in product management, project/program management, marketing, technology.</p>
+					</div>
+				</div>
+			</div>
+			<div class="container">
+				<div class="row">
+					<div class="col-md-6 right">
+						<label for="string1">String 1</label>
+						<input type="text" id="string1" placeholder="String 1" />
+						<label for="string2">String 2</label>
+						<input type="text" id="string2" placeholder="String 2" />
+						<button class="btn btn-default btn-lg">Check Anagram</button>
+						<div class="results"></div>
 					</div>
 				</div>
 			</div>
 		</header>
-	<!-- anagram js -->
-	<div>
-	<label for="string1">String 1</label>
-<input type="text" id="string1" placeholder="String 1" />
 
-<label for="string2">String 2</label>
-<input type="text" id="string2" placeholder="String 2" />
-<button class="checkAna">Check Anagram</button>
-<div class="results"></div>	
-	</div>
-	<div>
-	<script type="text/javascript">
-
-$(document).ready(function() {
-    // HERE IS THE FUNCTION :D
+	<!-- Anagram Checker Javascript, courtesy https://jsfiddle.net/engemasa/MT6mA/ -->	
+	<script type="text/javascript">//<![CDATA[
+	$(document).ready(function() {
+    // Start of Anagram Function
     var anagram = function(str1, str2){
-      return str1.split("").sort().join("") === str2.split("").sort().join("");
+        return str1.split("").sort().join("") === str2.split("").sort().join("");
     }
-    // THAT WAS THE FUNCTION :D
-    
-    $('.checkAna').on('click', function(e) {
+    // End of Anagram Function
+    $('.btn-lg').on('click', function(e) {
         e.preventDefault();
         if($('#string1').val() == '') {
             $('#string1').addClass('error');
@@ -89,36 +84,17 @@ $(document).ready(function() {
                 $('#string1').val('');
                 $('#string2').val('')
                 $('.results').show();
-                $('.results').empty().append('Is Anagram: ' + isAnagram);
+                $('.results').empty().append('Is this an anagram? ' + isAnagram);
             }
         }
-    });
-    
-    
+    });  
 });
 
-	</script>
-	</div>
+</script>
 
-		<!-- end header -->
-
-		<!-- footer -->
-		<footer class="footer">
-			<p>Copyright 2013 The Develovers. All Rights Reserved.</p>
-		</footer>
-		<!-- end footer -->
+		<!-- End of Header -->
 
 	</div>
-	<!-- END WRAPPER -->
-
-	<!-- Javascript -->
-	<script type="text/javascript" src="assets/js/jquery-1.7.2.min.js"></script>
-	<script type="text/javascript" src="assets/js/bootstrap.min.js"></script>
-	<script type="text/javascript" src="assets/js/modernizr.js"></script>
-	<script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=true"></script>
-	<script type="text/javascript" src="assets/js/jquery.ui.map.full.min.js?ver=3.0"></script>
-	<script type="text/javascript" src="assets/js/jquery.scrollTo-1.4.3.1-min.js"></script>
-	<script type="text/javascript" src="assets/js/jquery.localscroll-1.2.7-min.js"></script>	
-	<script type="text/javascript" src="assets/js/main.js"></script>
+	<!-- End of Wrapper -->
 </body>
 </html>
