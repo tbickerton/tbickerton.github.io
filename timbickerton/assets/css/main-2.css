@@ -161,7 +161,7 @@ button,
 input,
 select,
 textarea {
-  margin-bottom: 20px;
+  margin-bottom: 10px;
   font-family: inherit;
   font-size: 100%;
   display: block;
@@ -1819,7 +1819,6 @@ legend {
 
 label {
   display: inline-block;
-  margin-bottom: 5px;
   font-weight: bold;
   font-family: 'Josefin Slab', serif;
 }
@@ -9158,7 +9157,7 @@ a:hover, a:focus {
   background-image: url('../img/hero.png');
   background-repeat: no-repeat;
   background-position: top center;
-  padding-top: 50px;
+  padding-top: 20px;
   padding-bottom: 50px;
   text-align: center;
 }
@@ -9173,7 +9172,7 @@ a:hover, a:focus {
   color: white;
 }
 .header .right {
-  padding-top: 3em;
+  padding-top: 1.5em;
 }
 .header .heading {
   font-family: 'Special Elite', cursive;
@@ -9197,7 +9196,14 @@ a:hover, a:focus {
 }
 .header p {
   font-size: 1.5em;
-  margin-bottom: 3px;
+  margin-bottom: 1px;
+  font-family: 'Josefin Slab', serif;
+ } 
+p.subhead {
+  font-size: 100%;
+  font-weight: bold;
+  line-height: 1.5;
+  padding-bottom: 5px;
   font-family: 'Josefin Slab', serif;
 }
 .header .btn {
